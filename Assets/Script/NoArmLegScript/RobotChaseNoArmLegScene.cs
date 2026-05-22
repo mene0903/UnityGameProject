@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class RobotChaseNoArmLegScene : MonoBehaviour
 {
-    [Header("플레이어")]
-    public Transform player;
+    [Header("플레이어")] public Transform player;
 
     [Header("로봇 몸체")]
     public Transform robotBody;
