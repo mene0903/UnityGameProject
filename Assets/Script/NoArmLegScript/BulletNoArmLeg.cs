@@ -36,8 +36,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerHealth health =
-                other.GetComponent<PlayerHealth>();
+            PlayerHealth health = other.GetComponent<PlayerHealth>();
 
             if (health != null)
             {
@@ -45,9 +44,20 @@ public class Bullet : MonoBehaviour
             }
 
             Destroy(gameObject);
+            return;
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        if (other.CompareTag("Wall") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject other = collision.gameObject;
+
+        if (other.CompareTag("Wall") || other.layer == LayerMask.NameToLayer("Wall"))
         {
             Destroy(gameObject);
         }

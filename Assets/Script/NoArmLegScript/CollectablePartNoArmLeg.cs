@@ -21,7 +21,6 @@ public class CollectablePart : MonoBehaviour
     {
         popupUI = FindObjectOfType<ItemPopupUI>();
 
-        // Item Sprite 비어있으면 자기 Sprite 자동 사용
         if (itemSprite == null)
         {
             SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -44,13 +43,11 @@ public class CollectablePart : MonoBehaviour
 
     void Collect()
     {
-        // 가운데 팝업 표시
         if (popupUI != null)
         {
             popupUI.ShowItem(itemSprite);
         }
 
-        // Animator Controller 교체
         if (playerAnimator != null &&
             newAnimatorController != null)
         {
@@ -58,6 +55,11 @@ public class CollectablePart : MonoBehaviour
                 newAnimatorController;
 
             Debug.Log("Animator Controller 변경 완료");
+
+            if (GameProgressManager.Instance != null)
+            {
+                GameProgressManager.Instance.SetHasLegs();
+            }
         }
         else
         {
