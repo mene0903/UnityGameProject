@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PrologueScene/PrologueScene.unity
+    guid: 75c9c39ae0686a6449327ae1c0d508b5
+  - enabled: 1
+    path: Assets/Scenes/JunkYardScene/JunkYardScene.unity
+    guid: dd569bb06aa864c4ca1720383f8be7df
+  - enabled: 1
+    path: Assets/Scenes/FindBodyScene/FindBodyScene.unity
+    guid: 6b2ba1d75ed029a43911543aafa354d3
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
