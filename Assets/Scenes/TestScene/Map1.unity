@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 851558916}
   - component: {fileID: 851558915}
   - component: {fileID: 851558914}
+  - component: {fileID: 851558919}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -859,6 +860,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &851558919
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851558912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bd48e8ab29d99643be76283ce13cd38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1125729880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectablePart
   itemSprite: {fileID: -2813116699846629558, guid: bea722320f88bb4408746ca1ac7b2a12, type: 3}
+  newAnimatorController: {fileID: 0}
   interactKey: 101
 --- !u!61 &1583152825
 BoxCollider2D:
