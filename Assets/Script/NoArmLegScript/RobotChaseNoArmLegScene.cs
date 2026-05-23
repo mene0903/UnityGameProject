@@ -23,13 +23,13 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
     [Header("벽 감지 설정")]
     public LayerMask obstacleLayer;
 
-    [Header("두리번 설정")]
-    public float lookAngle = 45f;
-    public float lookSpeed = 2f;
-
-    [Header("360도 회전 설정")]
-    public float directionChangeTime = 3f;
-    public float baseTurnSpeed = 120f;
+    [Header("감시 움직임 설정")]
+    public float scanAngle = 12f;
+    public float scanSpeed = 0.8f;
+    public float watchTime = 3f;
+    public float pauseTime = 0.8f;
+    public float turnSpeed = 25f;
+    public float turnAmount = 90f;
 
     [Header("로봇 회전 보정")]
     public float robotRotationOffset = 0f;
@@ -45,33 +45,42 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
     private Vector2 currentLookDirection;
 
     private float baseAngle = 0f;
-    private float targetBaseAngle = 0f;
-    private float timer = 0f;
+    private float targetAngle = 0f;
+    private float stateTimer = 0f;
     private float shootTimer = 0f;
 
-    void Start()
+    private float currentScanOffset = 0f;
+
+    private enum RobotState
+    {
+        Watch,
+        PauseBeforeTurn,
+        Turn,
+        PauseAfterTurn
+    }
+
+    private RobotState currentState = RobotState.Watch;
+
+    private void Start()
     {
         if (player == null)
         {
-            GameObject target =
-                GameObject.FindGameObjectWithTag("Player");
+            GameObject target = GameObject.FindGameObjectWithTag("Player");
 
             if (target != null)
                 player = target.transform;
         }
 
-        currentLookDirection = Vector2.right;
+        currentLookDirection = AngleToDirection(baseAngle);
 
         if (alertIcon != null)
             alertIcon.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        UpdateTargetDirection();
-        SmoothRotateBaseDirection();
-        RotateViewDirection();
-
+        UpdateState();
+        UpdateLookDirection();
         UpdateViewConeVisual();
         UpdateRobotBodyRotation();
 
@@ -80,7 +89,6 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
         if (player == null) return;
 
         playerDetected = IsPlayerInView();
-
         UpdateAlertIcon();
 
         if (playerDetected)
@@ -89,41 +97,82 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
         }
     }
 
-    void UpdateTargetDirection()
+    private void UpdateState()
     {
-        timer += Time.deltaTime;
+        stateTimer += Time.deltaTime;
 
-        if (timer >= directionChangeTime)
+        switch (currentState)
         {
-            timer = 0f;
+            case RobotState.Watch:
+                if (stateTimer >= watchTime)
+                {
+                    ChangeState(RobotState.PauseBeforeTurn);
+                }
+                break;
 
-            targetBaseAngle += 90f;
+            case RobotState.PauseBeforeTurn:
+                if (stateTimer >= pauseTime)
+                {
+                    targetAngle = baseAngle + turnAmount;
 
-            if (targetBaseAngle >= 360f)
-                targetBaseAngle = 0f;
+                    if (targetAngle >= 360f)
+                        targetAngle -= 360f;
+
+                    ChangeState(RobotState.Turn);
+                }
+                break;
+
+            case RobotState.Turn:
+                baseAngle = Mathf.MoveTowardsAngle(
+                    baseAngle,
+                    targetAngle,
+                    turnSpeed * Time.deltaTime
+                );
+
+                if (Mathf.Abs(Mathf.DeltaAngle(baseAngle, targetAngle)) < 0.5f)
+                {
+                    baseAngle = targetAngle;
+                    ChangeState(RobotState.PauseAfterTurn);
+                }
+                break;
+
+            case RobotState.PauseAfterTurn:
+                if (stateTimer >= pauseTime)
+                {
+                    ChangeState(RobotState.Watch);
+                }
+                break;
         }
     }
 
-    void SmoothRotateBaseDirection()
+    private void ChangeState(RobotState newState)
     {
-        baseAngle = Mathf.MoveTowardsAngle(
-            baseAngle,
-            targetBaseAngle,
-            baseTurnSpeed * Time.deltaTime
-        );
+        currentState = newState;
+        stateTimer = 0f;
     }
 
-    void RotateViewDirection()
+    private void UpdateLookDirection()
     {
-        float scanAngle =
-            Mathf.Sin(Time.time * lookSpeed) * lookAngle;
+        float targetScanOffset = 0f;
 
-        float finalAngle = baseAngle + scanAngle;
+        if (currentState == RobotState.Watch)
+        {
+            targetScanOffset =
+                Mathf.Sin(Time.time * scanSpeed) * scanAngle;
+        }
+
+        // 스캔하다가 멈출 때 갑자기 정면 보는 문제 방지
+        currentScanOffset = Mathf.Lerp(
+            currentScanOffset,
+            targetScanOffset,
+            Time.deltaTime * 4f
+        );
+
+        float finalAngle = baseAngle + currentScanOffset;
 
         currentLookDirection = AngleToDirection(finalAngle);
     }
-
-    Vector2 AngleToDirection(float angle)
+    private Vector2 AngleToDirection(float angle)
     {
         float rad = angle * Mathf.Deg2Rad;
 
@@ -133,7 +182,7 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
         ).normalized;
     }
 
-    bool IsPlayerInView()
+    private bool IsPlayerInView()
     {
         Vector2 viewOrigin =
             (Vector2)transform.position + (Vector2)viewConeOffset;
@@ -143,18 +192,15 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
 
         float distanceToPlayer = toPlayer.magnitude;
 
-        // 거리 밖이면 감지 X
         if (distanceToPlayer > viewDistance)
             return false;
 
-        // 시야 각도 밖이면 감지 X
         float angle =
             Vector2.Angle(currentLookDirection, toPlayer);
 
         if (angle > viewAngle / 2f)
             return false;
 
-        // 벽/박스콜라이더에 가려졌는지 검사
         RaycastHit2D hit = Physics2D.Raycast(
             viewOrigin,
             toPlayer.normalized,
@@ -162,14 +208,13 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
             obstacleLayer
         );
 
-        // 중간에 벽이 있으면 감지 X
         if (hit.collider != null)
             return false;
 
         return true;
     }
 
-    void ShootAtPlayer()
+    private void ShootAtPlayer()
     {
         if (shootTimer > 0f) return;
         if (bulletPrefab == null) return;
@@ -178,12 +223,11 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
         Vector2 direction =
             ((Vector2)player.position - (Vector2)firePoint.position).normalized;
 
-        GameObject bullet =
-            Instantiate(
-                bulletPrefab,
-                firePoint.position,
-                Quaternion.identity
-            );
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.identity
+        );
 
         Bullet bulletScript = bullet.GetComponent<Bullet>();
 
@@ -195,7 +239,7 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
         shootTimer = shootInterval;
     }
 
-    void UpdateViewConeVisual()
+    private void UpdateViewConeVisual()
     {
         if (viewConeVisual == null) return;
 
@@ -216,20 +260,15 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
             new Vector3(scale, scale, 1f);
     }
 
-    void UpdateRobotBodyRotation()
+    private void UpdateRobotBodyRotation()
     {
         if (robotBody == null) return;
 
-        Vector2 dir = currentLookDirection.normalized;
-
-        float angle =
-            Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
         robotBody.rotation =
-            Quaternion.Euler(0, 0, angle + robotRotationOffset);
+            Quaternion.Euler(0, 0, baseAngle + robotRotationOffset);
     }
 
-    void UpdateAlertIcon()
+    private void UpdateAlertIcon()
     {
         if (alertIcon == null) return;
 
@@ -243,73 +282,5 @@ public class RobotChaseNoArmLegScene : MonoBehaviour
             alertIcon.transform.rotation =
                 Quaternion.identity;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Vector2 dir = Application.isPlaying
-            ? currentLookDirection.normalized
-            : Vector2.right;
-
-        Vector3 origin =
-            transform.position + viewConeOffset;
-
-        float halfAngle = viewAngle / 2f;
-
-        Vector2 leftDir = RotateVector(dir, halfAngle);
-        Vector2 rightDir = RotateVector(dir, -halfAngle);
-
-        Gizmos.color = Color.yellow;
-
-        Gizmos.DrawLine(
-            origin,
-            origin + (Vector3)(leftDir * viewDistance)
-        );
-
-        Gizmos.DrawLine(
-            origin,
-            origin + (Vector3)(rightDir * viewDistance)
-        );
-
-        int segments = 30;
-
-        Vector3 prevPoint =
-            origin + (Vector3)(rightDir * viewDistance);
-
-        for (int i = 1; i <= segments; i++)
-        {
-            float angle =
-                -halfAngle + (viewAngle / segments) * i;
-
-            Vector2 nextDir =
-                RotateVector(dir, angle);
-
-            Vector3 nextPoint =
-                origin + (Vector3)(nextDir * viewDistance);
-
-            Gizmos.DrawLine(prevPoint, nextPoint);
-
-            prevPoint = nextPoint;
-        }
-
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawLine(
-            origin,
-            origin + (Vector3)(dir * viewDistance)
-        );
-    }
-
-    Vector2 RotateVector(Vector2 v, float degree)
-    {
-        float rad = degree * Mathf.Deg2Rad;
-
-        float cos = Mathf.Cos(rad);
-        float sin = Mathf.Sin(rad);
-
-        return new Vector2(
-            v.x * cos - v.y * sin,
-            v.x * sin + v.y * cos
-        );
     }
 }

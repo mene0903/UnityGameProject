@@ -3,27 +3,32 @@ using UnityEngine;
 public class ConveyorPart : MonoBehaviour
 {
     private Transform target;
-    private float moveSpeed;
 
-    // ConveyorSpawner가 호출하는 함수
-    public void SetTarget(Transform newTarget, float newMoveSpeed)
+    // ConveyorSpawner 참조
+    private ConveyorSpawner conveyorSpawner;
+
+    public void SetTarget(
+        Transform targetPoint,
+        ConveyorSpawner spawner
+    )
     {
-        target = newTarget;
-        moveSpeed = newMoveSpeed;
+        target = targetPoint;
+        conveyorSpawner = spawner;
     }
 
     private void Update()
     {
-        if (target == null) return;
+        if (target == null || conveyorSpawner == null)
+            return;
 
-        // 목표 지점까지 이동
+        // 실시간으로 현재 moveSpeed 사용
         transform.position = Vector2.MoveTowards(
             transform.position,
             target.position,
-            moveSpeed * Time.deltaTime
+            conveyorSpawner.moveSpeed * Time.deltaTime
         );
 
-        // 목표 지점 도착 시 삭제
+        // 목적지 도착 시 삭제
         if (Vector2.Distance(transform.position, target.position) < 0.05f)
         {
             Destroy(gameObject);

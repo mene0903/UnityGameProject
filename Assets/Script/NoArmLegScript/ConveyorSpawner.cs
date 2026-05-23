@@ -50,6 +50,7 @@ public class ConveyorSpawner : MonoBehaviour
             return;
         }
 
-        part.SetTarget(destroyPoint, moveSpeed);
+        // 현재 ConveyorSpawner 자체를 넘김
+        part.SetTarget(destroyPoint, this);
     }
 }
