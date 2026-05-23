@@ -1473,12 +1473,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HiddenNumberItem1
   number: 1
-  player: {fileID: 0}
+  player: {fileID: 1942773168}
   sparkleDistance: 2
   interactDistance: 1.2
-  sparkleObject: {fileID: 0}
-  centerNumberText: {fileID: 0}
-  numberUI: {fileID: 0}
+  sparkleObject: {fileID: 1759716723}
+  centerNumberText: {fileID: 764849757}
+  numberUI: {fileID: 1105983775}
 --- !u!1001 &202555527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1851,12 +1851,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HiddenNumberItem1
   number: 2
-  player: {fileID: 0}
+  player: {fileID: 1942773168}
   sparkleDistance: 2
   interactDistance: 1.2
-  sparkleObject: {fileID: 0}
-  centerNumberText: {fileID: 0}
-  numberUI: {fileID: 0}
+  sparkleObject: {fileID: 1062952197}
+  centerNumberText: {fileID: 764849757}
+  numberUI: {fileID: 1105983775}
 --- !u!1 &216078455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,15 +3190,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 333
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1057944976677450486, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.05, y: 1.52}
+  m_Size: {x: 4.81, y: 5.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &349499690
 Transform:
@@ -5642,9 +5642,9 @@ MonoBehaviour:
   player: {fileID: 1942773168}
   sparkleDistance: 2
   interactDistance: 1.2
-  sparkleObject: {fileID: 0}
-  centerNumberText: {fileID: 0}
-  numberUI: {fileID: 0}
+  sparkleObject: {fileID: 1373540882}
+  centerNumberText: {fileID: 764849757}
+  numberUI: {fileID: 1105983775}
 --- !u!1 &599978230
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,15 +9323,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 333
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1057944976677450486, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.05, y: 1.52}
+  m_Size: {x: 4.81, y: 5.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1062952199
 Transform:
@@ -10007,12 +10007,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HiddenNumberItem1
   number: 4
-  player: {fileID: 0}
+  player: {fileID: 1942773168}
   sparkleDistance: 2
   interactDistance: 1.2
-  sparkleObject: {fileID: 0}
-  centerNumberText: {fileID: 0}
-  numberUI: {fileID: 0}
+  sparkleObject: {fileID: 349499688}
+  centerNumberText: {fileID: 764849757}
+  numberUI: {fileID: 1105983775}
 --- !u!1001 &1126102869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11896,15 +11896,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 333
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1057944976677450486, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.05, y: 1.52}
+  m_Size: {x: 4.81, y: 5.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1373540884
 Transform:
@@ -14548,15 +14548,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 333
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1057944976677450486, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9dbb35e8ea1e474fb80f157c2433cfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.05, y: 1.52}
+  m_Size: {x: 4.81, y: 5.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1759716725
 Transform:

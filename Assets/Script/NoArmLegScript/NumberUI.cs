@@ -1,26 +1,26 @@
-using UnityEngine;
-using TMPro;
+    using UnityEngine;
+    using TMPro;
 
-public class NumberUI : MonoBehaviour
-{
-    [Header("번호 Text 4개")]
-    public TMP_Text[] numberTexts;
-
-    void Start()
+    public class NumberUI : MonoBehaviour
     {
-        for (int i = 0; i < numberTexts.Length; i++)
+        [Header("번호 Text 4개")]
+        public TMP_Text[] numberTexts;
+
+        void Start()
         {
-            numberTexts[i].text = "";
+            for (int i = 0; i < numberTexts.Length; i++)
+            {
+                numberTexts[i].text = "";
+            }
+        }
+
+        public void ShowNumber(int number)
+        {
+            int index = number - 1;
+
+            if (index < 0 || index >= numberTexts.Length)
+                return;
+
+            numberTexts[index].text = number.ToString();
         }
     }
-
-    public void ShowNumber(int number)
-    {
-        int index = number - 1;
-
-        if (index < 0 || index >= numberTexts.Length)
-            return;
-
-        numberTexts[index].text = number.ToString();
-    }
-}
