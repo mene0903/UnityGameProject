@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NoArmScene/NoArmScene.unity
     guid: e678651b073d16443be469e527b8c7d7
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene/GameOverScene.unity
+    guid: fc53a7b8d0cb466459c1f5b423ee8c7e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

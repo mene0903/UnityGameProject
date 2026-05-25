@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 계속 카메라가 쫓아간다
-public class All_Forever_ChaseCamera : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
 
     void LateUpdate()// 계속 시행한다(여러 가지 처리의 마지막에)
