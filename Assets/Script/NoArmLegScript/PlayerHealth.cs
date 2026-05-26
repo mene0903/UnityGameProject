@@ -1,12 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("��Ʈ UI")]
+    [Header("ÇÏÆ® UI")]
     public Image[] hearts;
 
-    [Header("ü��")]
+    [Header("Ã¼·Â")]
     public int maxHealth = 3;
 
     private int currentHealth;
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("�÷��̾� ���");
+            Debug.Log("ÇÃ·¹ÀÌ¾î »ç¸Á");
         }
     }
 
