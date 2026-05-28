@@ -50,6 +50,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeadScene/Level3DeathFirstMedicine2.unity
     guid: 2cd214fcbd0e3544a91d5641cc4c5b69
+  - enabled: 1
+    path: Assets/Scenes/DeadScene/Level1DeathSecond.unity
+    guid: 0085ee1f63f9ea341ad37b0a8318c914
+  - enabled: 1
+    path: Assets/Scenes/DeadScene/Level1DeathFirst.unity
+    guid: ad1544c028ade4b408ea5706d46056b2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
