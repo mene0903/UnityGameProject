@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: targetImage
       value: 
       objectReference: {fileID: 1434118144}
+    - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
+      propertyPath: gameOverSceneName
+      value: GameOverScene1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

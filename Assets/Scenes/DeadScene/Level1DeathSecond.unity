@@ -268,6 +268,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1755868591}
     - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
+      propertyPath: gameOverSceneName
+      value: GameOverScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
       propertyPath: 'deathImages.Array.data[0]'
       value: 
       objectReference: {fileID: -855298285791758126, guid: 3836bd17e8acd6e43a9807b4ecb52e89, type: 3}
