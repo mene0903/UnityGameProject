@@ -12106,6 +12106,7 @@ GameObject:
   - component: {fileID: 230573429}
   - component: {fileID: 230573428}
   - component: {fileID: 230573427}
+  - component: {fileID: 230573431}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0 (3)"
   m_TagString: ChemicalPuddle
@@ -12520,6 +12521,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230573431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230573426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!1 &232895683
 GameObject:
   m_ObjectHideFlags: 0
@@ -19923,6 +19941,7 @@ GameObject:
   - component: {fileID: 549241220}
   - component: {fileID: 549241219}
   - component: {fileID: 549241218}
+  - component: {fileID: 549241222}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0 (1)"
   m_TagString: ChemicalPuddle
@@ -20337,6 +20356,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549241222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549241217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!1 &552068032
 GameObject:
   m_ObjectHideFlags: 0
@@ -26765,6 +26801,7 @@ GameObject:
   - component: {fileID: 782300453}
   - component: {fileID: 782300452}
   - component: {fileID: 782300451}
+  - component: {fileID: 782300455}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0 (4)"
   m_TagString: ChemicalPuddle
@@ -27179,6 +27216,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782300455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782300450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!1 &801194554
 GameObject:
   m_ObjectHideFlags: 0
@@ -28414,6 +28468,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1001 &940153922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: afterAnimator
+      value: 
+      objectReference: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 1942773169}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: 'hearts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 887497558}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: 'hearts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1494412816}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: 'hearts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 929833394}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: afterPartDeathSceneName
+      value: Level3DeathSecond
+      objectReference: {fileID: 0}
+    - target: {fileID: 919958594565243682, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: beforePartDeathSceneName
+      value: Level3DeathFirst
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265112235330914138, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_Name
+      value: DeathSceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.20151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.84504
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929326062667364658, guid: 959889a63099112409c21561bf80afd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 959889a63099112409c21561bf80afd2, type: 3}
 --- !u!1 &942703933
 GameObject:
   m_ObjectHideFlags: 0
@@ -42390,6 +42529,7 @@ GameObject:
   - component: {fileID: 1490790540}
   - component: {fileID: 1490790539}
   - component: {fileID: 1490790538}
+  - component: {fileID: 1490790542}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0 (2)"
   m_TagString: ChemicalPuddle
@@ -42804,6 +42944,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490790542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490790537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!114 &1494412816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7829264988536842739, guid: fc65a9cc92991de42a15a571bba4910f, type: 3}
@@ -49876,6 +50033,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 73803532777367136, guid: ecdfa4cf2ff66f94f916651eaa71c704, type: 3}
   m_PrefabInstance: {fileID: 202555527}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1942773169 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5491971312794085135, guid: ecdfa4cf2ff66f94f916651eaa71c704, type: 3}
+  m_PrefabInstance: {fileID: 202555527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1945408671
 GameObject:
   m_ObjectHideFlags: 0
@@ -50507,6 +50669,7 @@ GameObject:
   - component: {fileID: 2020613633}
   - component: {fileID: 2020613632}
   - component: {fileID: 2020613631}
+  - component: {fileID: 2020613635}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0 (5)"
   m_TagString: ChemicalPuddle
@@ -50921,6 +51084,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020613635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020613630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!1 &2031705029
 GameObject:
   m_ObjectHideFlags: 0
@@ -51011,6 +51191,7 @@ GameObject:
   - component: {fileID: 2038243465}
   - component: {fileID: 2038243464}
   - component: {fileID: 2038243463}
+  - component: {fileID: 2038243467}
   m_Layer: 0
   m_Name: "\uC758\uC57D\uD488_0"
   m_TagString: ChemicalPuddle
@@ -51425,6 +51606,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038243467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038243462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159a458a2b316874e9ed7df63581cc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MedicineInstantDeath
+  playerTag: Player
+  playerAnimator: {fileID: 1942773169}
+  afterAnimator: {fileID: 9100000, guid: fd38ca48c596a1b4c88b776f16d6eec7, type: 2}
+  beforePartDeathSceneName: Level3DeathFirstMedicine1
+  afterPartDeathSceneName: Level3DeathFirstMedicine2
 --- !u!4 &2043171564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6813672837827728900, guid: aff667979d228ba418219d3c2ed7fd27, type: 3}
@@ -52259,3 +52457,4 @@ SceneRoots:
   - {fileID: 490041764}
   - {fileID: 106295706}
   - {fileID: 330586633}
+  - {fileID: 940153922}

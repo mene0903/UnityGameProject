@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &198873552002658083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7900038165236255200}
+  - component: {fileID: 8099730863445278935}
+  m_Layer: 0
+  m_Name: DeathCutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7900038165236255200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198873552002658083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.20151, y: 3.84504, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8099730863445278935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198873552002658083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69cc6ee9e5e1b649890791c2a274e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathCutscenePlayer
+  deathImages:
+  - {fileID: -855298285791758126, guid: 0f763f447a7a6984fa5fd4b519d8a2e6, type: 3}
+  - {fileID: 6937817954938267909, guid: 8dad2a31d5ca7b843bd824f2eb5f43ba, type: 3}
+  - {fileID: -6470460504253458178, guid: cf76c6908a021d04c863c0cfec358f42, type: 3}
+  targetImage: {fileID: 0}
+  imageDuration: 1.5
+  gameOverSceneName: GameOverScene
