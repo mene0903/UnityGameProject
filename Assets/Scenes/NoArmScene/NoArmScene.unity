@@ -19291,7 +19291,7 @@ MonoBehaviour:
   inputField: {fileID: 1734367465}
   resultText: {fileID: 1408847751}
   correctCode: 3214
-  nextSceneName: NoArmLegScene
+  nextSceneName: EscapeScene
 --- !u!114 &455746550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29184,7 +29184,7 @@ MonoBehaviour:
   leverOffSprite: {fileID: 2697914516390998686, guid: aa599136dbee85446bc2dc93869ec10e, type: 3}
   leverOnSprite: {fileID: -6996275892551572486, guid: 27498cc4a1c8efe4a8905c3c0ec9d445, type: 3}
   conveyorSpawner: {fileID: 331930078}
-  changedMoveSpeed: 15
+  changedMoveSpeed: 13
 --- !u!61 &1036291381
 BoxCollider2D:
   m_ObjectHideFlags: 0

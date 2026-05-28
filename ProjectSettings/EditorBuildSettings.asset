@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DeadScene/Level3DeathFirstMedicine2.unity
     guid: 2cd214fcbd0e3544a91d5641cc4c5b69
   - enabled: 1
+    path: Assets/Scenes/Escape/EscapeScene.unity
+    guid: 00076b5079b01c3488694503a0e84d79
+  - enabled: 1
     path: Assets/Scenes/DeadScene/Level1DeathSecond.unity
     guid: 0085ee1f63f9ea341ad37b0a8318c914
   - enabled: 1

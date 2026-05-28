@@ -414,6 +414,18 @@ PrefabInstance:
       propertyPath: targetImage
       value: 
       objectReference: {fileID: 237754391}
+    - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
+      propertyPath: 'deathImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: -855298285791758126, guid: 707eaa10deaed5244b6ff56b6199e8f3, type: 3}
+    - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
+      propertyPath: 'deathImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6937817954938267909, guid: 510e1443206581d4ba0968b71c411fb0, type: 3}
+    - target: {fileID: 8099730863445278935, guid: add363425de6b5542b655062e8a268ca, type: 3}
+      propertyPath: 'deathImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: -6470460504253458178, guid: f0c5ee5e7c71c7d48956ad673d97fe75, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
