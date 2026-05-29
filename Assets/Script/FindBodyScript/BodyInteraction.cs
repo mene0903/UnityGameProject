@@ -1,24 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
-
 public class BodyInteraction : MonoBehaviour
 {
     public float interactRange = 10f;
     public GameObject interactUI;
     public GameObject allCharacterPrefab;
     public Sprite bodySprite;
-
     private Transform _player;
     private bool _merging = false;
     private Image _popupImage;
-
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         interactUI.SetActive(false);
-
-        // AllCanvas에서 직접 찾기
         Canvas canvas = FindObjectOfType<Canvas>();
         if (canvas != null)
         {
@@ -32,13 +27,9 @@ public class BodyInteraction : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("팝업 이미지 찾음: " + _popupImage);
-
         if (_popupImage != null)
             _popupImage.enabled = false;
     }
-
     void Update()
     {
         if (_merging) return;
@@ -54,32 +45,44 @@ public class BodyInteraction : MonoBehaviour
             interactUI.SetActive(false);
         }
     }
-
     private System.Collections.IEnumerator MergeSequence()
     {
         _merging = true;
         interactUI.SetActive(false);
-
+        // 즉시 속도 0으로 멈춤
         foreach (var bot in FindObjectsOfType<RepairBot>())
-            bot.Freeze();
-
-        // 팝업 이미지 표시
+        {
+            bot.chaseSpeed = 0f;
+            bot.patrolSpeed = 0f;
+        }
         if (_popupImage != null)
         {
             _popupImage.sprite = bodySprite;
             _popupImage.enabled = true;
         }
-
+        // 체력 저장
+        int savedHealth = 3;
+        FindBodyPlayerHealth ph = _player.GetComponent<FindBodyPlayerHealth>();
+        if (ph != null)
+            savedHealth = ph.GetHealth();
         yield return new WaitForSeconds(2.5f);
-
         if (_popupImage != null)
             _popupImage.enabled = false;
-
-        
-
+        // 팝업 끝나고 절반 속도로 재개
+        foreach (var bot in FindObjectsOfType<RepairBot>())
+        {
+            bot.chaseSpeed = 1f;
+            bot.patrolSpeed = 0.5f;
+        }
         if (allCharacterPrefab != null)
-            Instantiate(allCharacterPrefab, _player.position, Quaternion.identity);
-
+        {
+            GameObject newPlayer = Instantiate(allCharacterPrefab, _player.position, Quaternion.identity);
+            // 한 프레임 기다려서 Start()가 실행된 후 SetHealth() 호출
+            yield return null;
+            FindBodyPlayerHealth newPh = newPlayer.GetComponent<FindBodyPlayerHealth>();
+            if (newPh != null)
+                newPh.SetHealth(savedHealth);
+        }
         GameObject globalLightObj = GameObject.Find("Global Light 2D");
         if (globalLightObj != null)
         {
@@ -88,11 +91,9 @@ public class BodyInteraction : MonoBehaviour
                 globalLight.intensity = 1f;
             GameStateManager.Instance.hasFoundPart = true;
         }
-
         Destroy(_player.gameObject);
         Destroy(gameObject);
     }
-
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

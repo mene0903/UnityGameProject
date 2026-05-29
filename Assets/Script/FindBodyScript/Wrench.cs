@@ -38,6 +38,11 @@ public class Wrench : MonoBehaviour
             PlayerHealth ph = other.GetComponent<PlayerHealth>();
             if (ph != null)
                 ph.TakeDamage();
+
+            FindBodyPlayerHealth fbph = other.GetComponent<FindBodyPlayerHealth>();
+            if (fbph != null)
+                fbph.TakeDamage();
+
             Destroy(gameObject);
         }
     }
