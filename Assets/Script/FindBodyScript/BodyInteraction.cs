@@ -7,6 +7,7 @@ public class BodyInteraction : MonoBehaviour
     public GameObject interactUI;
     public GameObject allCharacterPrefab;
     public Sprite bodySprite;
+    public GameObject bgmManagerPrefab; // 추가
     private Transform _player;
     private bool _merging = false;
     private Image _popupImage;
@@ -49,7 +50,6 @@ public class BodyInteraction : MonoBehaviour
     {
         _merging = true;
         interactUI.SetActive(false);
-        // 즉시 속도 0으로 멈춤
         foreach (var bot in FindObjectsOfType<RepairBot>())
         {
             bot.chaseSpeed = 0f;
@@ -60,7 +60,6 @@ public class BodyInteraction : MonoBehaviour
             _popupImage.sprite = bodySprite;
             _popupImage.enabled = true;
         }
-        // 체력 저장
         int savedHealth = 3;
         FindBodyPlayerHealth ph = _player.GetComponent<FindBodyPlayerHealth>();
         if (ph != null)
@@ -68,7 +67,6 @@ public class BodyInteraction : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         if (_popupImage != null)
             _popupImage.enabled = false;
-        // 팝업 끝나고 절반 속도로 재개
         foreach (var bot in FindObjectsOfType<RepairBot>())
         {
             bot.chaseSpeed = 1f;
@@ -77,7 +75,6 @@ public class BodyInteraction : MonoBehaviour
         if (allCharacterPrefab != null)
         {
             GameObject newPlayer = Instantiate(allCharacterPrefab, _player.position, Quaternion.identity);
-            // 한 프레임 기다려서 Start()가 실행된 후 SetHealth() 호출
             yield return null;
             FindBodyPlayerHealth newPh = newPlayer.GetComponent<FindBodyPlayerHealth>();
             if (newPh != null)
@@ -89,6 +86,9 @@ public class BodyInteraction : MonoBehaviour
             Light2D globalLight = globalLightObj.GetComponent<Light2D>();
             if (globalLight != null)
                 globalLight.intensity = 1f;
+            // 불 켜지는 순간 BGMManager 스폰
+            if (bgmManagerPrefab != null)
+                Instantiate(bgmManagerPrefab);
             GameStateManager.Instance.hasFoundPart = true;
         }
         Destroy(_player.gameObject);

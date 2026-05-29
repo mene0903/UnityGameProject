@@ -3189,6 +3189,7 @@ MonoBehaviour:
   - {fileID: 1486514906}
   - {fileID: 1389162991}
   maxHealth: 3
+  currentHealth: 0
 --- !u!1 &1373144289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,6 +4687,7 @@ MonoBehaviour:
   interactUI: {fileID: 1554434288}
   allCharacterPrefab: {fileID: 1612041815773481498, guid: 266c355ec77dac442a88f1f4bf5d790f, type: 3}
   bodySprite: {fileID: -2813116699846629558, guid: 8942070839afd1d43833b5db07819512, type: 3}
+  bgmManagerPrefab: {fileID: 608525965456586949, guid: 65fff99ac9d2b0645a75f3d3f9ec6114, type: 3}
 --- !u!61 &1963331893
 BoxCollider2D:
   m_ObjectHideFlags: 0
