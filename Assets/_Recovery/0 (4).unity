@@ -3103,7 +3103,7 @@ MonoBehaviour:
   - {fileID: 1486514906}
   - {fileID: 1389162991}
   maxHealth: 3
-  currentHealth: 3
+  currentHealth: 0
 --- !u!1 &1373144289
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class BodyInteraction : MonoBehaviour
     public GameObject interactUI;
     public GameObject allCharacterPrefab;
     public Sprite bodySprite;
-    public GameObject bgmManagerPrefab; // 추가
+    public GameObject bgmManagerPrefab;
     private Transform _player;
     private bool _merging = false;
     private Image _popupImage;
@@ -60,10 +60,6 @@ public class BodyInteraction : MonoBehaviour
             _popupImage.sprite = bodySprite;
             _popupImage.enabled = true;
         }
-        int savedHealth = 3;
-        FindBodyPlayerHealth ph = _player.GetComponent<FindBodyPlayerHealth>();
-        if (ph != null)
-            savedHealth = ph.GetHealth();
         yield return new WaitForSeconds(2.5f);
         if (_popupImage != null)
             _popupImage.enabled = false;
@@ -73,20 +69,13 @@ public class BodyInteraction : MonoBehaviour
             bot.patrolSpeed = 0.5f;
         }
         if (allCharacterPrefab != null)
-        {
-            GameObject newPlayer = Instantiate(allCharacterPrefab, _player.position, Quaternion.identity);
-            yield return null;
-            FindBodyPlayerHealth newPh = newPlayer.GetComponent<FindBodyPlayerHealth>();
-            if (newPh != null)
-                newPh.SetHealth(savedHealth);
-        }
+            Instantiate(allCharacterPrefab, _player.position, Quaternion.identity);
         GameObject globalLightObj = GameObject.Find("Global Light 2D");
         if (globalLightObj != null)
         {
             Light2D globalLight = globalLightObj.GetComponent<Light2D>();
             if (globalLight != null)
                 globalLight.intensity = 1f;
-            // 불 켜지는 순간 BGMManager 스폰
             if (bgmManagerPrefab != null)
                 Instantiate(bgmManagerPrefab);
             GameStateManager.Instance.hasFoundPart = true;
