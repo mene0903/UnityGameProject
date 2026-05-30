@@ -2111,7 +2111,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1612041815773481498, guid: 343e5ccc073debd449cb4e37d9bbea77, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1376651075}
   m_SourcePrefab: {fileID: 100100000, guid: 343e5ccc073debd449cb4e37d9bbea77, type: 3}
 --- !u!1 &570490824
 GameObject:
@@ -3535,6 +3538,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930444665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1612041815773481498, guid: 343e5ccc073debd449cb4e37d9bbea77, type: 3}
+  m_PrefabInstance: {fileID: 559477115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930713674
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +5987,32 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5491971312794085135, guid: 343e5ccc073debd449cb4e37d9bbea77, type: 3}
   m_PrefabInstance: {fileID: 559477115}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1376651072 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1056596099543139336, guid: 343e5ccc073debd449cb4e37d9bbea77, type: 3}
+  m_PrefabInstance: {fileID: 559477115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376651075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930444665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c618bf09b77fd8c4092b156271f6031d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColliderByAnimatorController
+  animator: {fileID: 1376651067}
+  boxCollider: {fileID: 1376651072}
+  settings:
+  - animatorController: {fileID: 9100000, guid: 10203b43172165f4d940527215f3ac11, type: 2}
+    colliderSize: {x: 3.405125, y: 5.979563}
+    colliderOffset: {x: 1.081568, y: 0.9381524}
+  - animatorController: {fileID: 9100000, guid: 5c32088b2ece1d141802bfcb4671695e, type: 2}
+    colliderSize: {x: 3.170648, y: 6.713532}
+    colliderOffset: {x: 0.07348931, y: 4.618671}
 --- !u!1 &1391325064
 GameObject:
   m_ObjectHideFlags: 0
