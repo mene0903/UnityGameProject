@@ -5,6 +5,6 @@ public class GameOverManager : MonoBehaviour
 {
     public void OnRestartButton()
     {
-        SceneManager.LoadScene("GameScene"); // 나중에 씬 이름 바꾸기
+        SceneManager.LoadScene("JunkYardScene"); // 나중에 씬 이름 바꾸기
     }
 }
