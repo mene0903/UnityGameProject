@@ -2435,6 +2435,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2984680378213181798, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
+      propertyPath: wrenchPrefab
+      value: 
+      objectReference: {fileID: 5500661627403013093, guid: 4d87960b1f228d24eb9e2cde25742c2e, type: 3}
+    - target: {fileID: 2984680378213181798, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
       propertyPath: stopOnBodyFound
       value: 0
       objectReference: {fileID: 0}
@@ -2450,10 +2454,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5882353
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2984680378213181798, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5358870421165917025, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1777573164}
   m_SourcePrefab: {fileID: 100100000, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
 --- !u!1 &444501409
 GameObject:
@@ -5404,10 +5412,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5882353
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2984680378213181798, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5358870421165917025, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1421422304}
   m_SourcePrefab: {fileID: 100100000, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
 --- !u!1 &1185645562
 GameObject:
@@ -7009,6 +7021,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418339819}
   m_CullTransparentMesh: 1
+--- !u!1 &1421422299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5358870421165917025, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
+  m_PrefabInstance: {fileID: 1168709899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1421422304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421422299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65028fa72f057de499f939b1e1dceb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RepairBot1
+  detectRange: 3
+  giveUpRange: 7
+  chaseSpeed: 2
+  returnSpeed: 1.5
+  patrolRange: 2
+  patrolSpeed: 1
+  stopOnBodyFound: 1
+  wrenchPrefab: {fileID: 0}
+  throwCooldown: 2
+  arcHeight: 2
 --- !u!1 &1424276212
 GameObject:
   m_ObjectHideFlags: 0
@@ -8811,6 +8850,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 363100383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1777573159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5358870421165917025, guid: a0b97ad24bb25094994ee2c6065af622, type: 3}
+  m_PrefabInstance: {fileID: 437728581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1777573164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777573159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65028fa72f057de499f939b1e1dceb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RepairBot1
+  detectRange: 3
+  giveUpRange: 7
+  chaseSpeed: 2
+  returnSpeed: 1.5
+  patrolRange: 2
+  patrolSpeed: 1
+  stopOnBodyFound: 1
+  wrenchPrefab: {fileID: 5500661627403013093, guid: 4d87960b1f228d24eb9e2cde25742c2e, type: 3}
+  throwCooldown: 2
+  arcHeight: 2
 --- !u!1 &1804342961
 GameObject:
   m_ObjectHideFlags: 0
