@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // 추가
+using UnityEngine.SceneManagement;
 
 public class FindBodyPlayerHealth : MonoBehaviour
 {
@@ -13,19 +13,18 @@ public class FindBodyPlayerHealth : MonoBehaviour
     void Awake()
     {
         currentHealth = maxHealth;
+        FindHearts();
     }
 
     void FindHearts()
     {
-        if (hearts == null || hearts.Length == 0 || hearts[0] == null)
+        // 조건 없이 항상 다시 찾기
+        hearts = new Image[]
         {
-            hearts = new Image[]
-            {
-                GameObject.Find("Heart1")?.GetComponent<Image>(),
-                GameObject.Find("Heart2")?.GetComponent<Image>(),
-                GameObject.Find("Heart3")?.GetComponent<Image>()
-            };
-        }
+        GameObject.Find("Heart1")?.GetComponent<Image>(),
+        GameObject.Find("Heart2")?.GetComponent<Image>(),
+        GameObject.Find("Heart3")?.GetComponent<Image>()
+        };
     }
 
     public void SetHealth(int health)
@@ -46,12 +45,11 @@ public class FindBodyPlayerHealth : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;
         FindHearts();
         UpdateHearts();
-
         if (currentHealth <= 0)
         {
             Debug.Log("플레이어 사망");
-            Time.timeScale = 1f; // 혹시 정지 상태면 초기화
-            SceneManager.LoadScene("GameOverScene1"); // GameOverScene으로 이동
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("GameOverScene1");
         }
     }
 
@@ -61,6 +59,8 @@ public class FindBodyPlayerHealth : MonoBehaviour
         {
             if (hearts[i] != null)
                 hearts[i].enabled = i < currentHealth;
+            else
+                Debug.LogWarning("하트 " + i + "번이 연결 안 됨");
         }
     }
 }

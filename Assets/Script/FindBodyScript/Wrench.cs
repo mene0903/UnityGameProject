@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class Wrench : MonoBehaviour
 {
     private Vector3 startPos;
@@ -6,6 +7,7 @@ public class Wrench : MonoBehaviour
     private float progress = 0f;
     private float speed = 1.5f;
     private float baseSize = 0.3f;
+
     public void Launch(Vector3 from, Vector3 to)
     {
         startPos = from;
@@ -13,6 +15,7 @@ public class Wrench : MonoBehaviour
         transform.position = from;
         progress = 0f;
     }
+
     void Update()
     {
         progress += Time.deltaTime * speed;
@@ -24,6 +27,7 @@ public class Wrench : MonoBehaviour
         if (progress >= 1f)
             Destroy(gameObject);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -31,6 +35,7 @@ public class Wrench : MonoBehaviour
             FindBodyPlayerHealth fbph = FindObjectOfType<FindBodyPlayerHealth>();
             if (fbph != null)
                 fbph.TakeDamage();
+
             Destroy(gameObject);
         }
     }
